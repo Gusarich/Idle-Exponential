@@ -5,4 +5,4 @@
 
 This is incremental game
 
-Check out [https://gusarich.github.io/Idle-Exponential/](here)!
+Check out at https://gusarich.github.io/Idle-Exponential/
