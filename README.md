@@ -1,7 +1,7 @@
 # Idle Exponential
 
 
-**V0.01**
+**V0.02**
 
 This is incremental game
 

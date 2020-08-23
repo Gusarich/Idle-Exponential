@@ -15,14 +15,66 @@
             <div id="mid">
                 <div class="left">
                     <span class="side-title p22">Upgrades</span>
-                    <div class="side-button clickable" v-on:click="buyUpgrade(0)">
+
+                    <div v-if="!upgrades[0][0]" class="side-button left-button clickable" v-on:click="buyUpgrade(0)">
+                        <span class="p18">Increaser x3</span>
+                        <span class="default-span p14">Cost: <span class="p16">{{ upgrades[0][1] }}</span> X</span>
+                    </div>
+                    <div v-if="!upgrades[1][0]" class="side-button left-button clickable" v-on:click="buyUpgrade(1)">
                         <span class="p18">Producer x2</span>
-                        <span class="default-span p14">Cost: <span class="p16">{{ toExp(upgrades[0]) }}</span> X</span>
+                        <span class="default-span p14">Cost: <span class="p16">{{ upgrades[1][1] }}</span> X</span>
+                    </div>
+                    <div v-if="!upgrades[2][0]" class="side-button left-button clickable" v-on:click="buyUpgrade(2)">
+                        <span class="p18">Cost mult 5 > 3</span>
+                        <span class="default-span p14">Cost: <span class="p16">{{ upgrades[2][1] }}</span> X</span>
+                    </div>
+                    <div v-if="!upgrades[3][0]" class="side-button left-button clickable" v-on:click="buyUpgrade(3)">
+                        <span class="p18">Increaser x5</span>
+                        <span class="default-span p14">Cost: <span class="p16">{{ upgrades[3][1] }}</span> X</span>
                     </div>
                 </div>
 
                 <div class="right">
                     <span class="side-title p22">Bonuses</span>
+
+                    <div v-if="!bonuses[0][0]" class="side-button right-button">
+                        <span class="p18">Increaser x10</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[0][1] }}</span> S</span>
+                    </div>
+                    <div v-if="!bonuses[1][0]" class="side-button right-button">
+                        <span class="p18">Producer x5</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[1][1] }}</span> S</span>
+                    </div>
+                    <div v-if="!bonuses[2][0]" class="side-button right-button">
+                        <span class="p18">Upgrader x2</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[2][1] }}</span> S</span>
+                    </div>
+
+                    <div v-if="bonuses[2][0] && !bonuses[3][0]" class="side-button right-button">
+                        <span class="p18">Increaser x20</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[3][1] }}</span> S</span>
+                    </div>
+                    <div v-if="bonuses[2][0] && !bonuses[4][0]" class="side-button right-button">
+                        <span class="p18">Producer x10</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[4][1] }}</span> S</span>
+                    </div>
+                    <div v-if="bonuses[2][0] && !bonuses[5][0]" class="side-button right-button">
+                        <span class="p18">Upgrader x4</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[5][1] }}</span> S</span>
+                    </div>
+
+                    <div v-if="bonuses[5][0] && !bonuses[6][0]" class="side-button right-button">
+                        <span class="p18">Increaser x100</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[6][1] }}</span> S</span>
+                    </div>
+                    <div v-if="bonuses[5][0] && !bonuses[7][0]" class="side-button right-button">
+                        <span class="p18">Producer x50</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[7][1] }}</span> S</span>
+                    </div>
+                    <div v-if="bonuses[5][0] && !bonuses[8][0]" class="side-button right-button">
+                        <span class="p18">Upgrader x20</span>
+                        <span class="default-span p14">Reach <span class="p16">{{ bonuses[8][1] }}</span> S</span>
+                    </div>
                 </div>
 
                 <div class="center">

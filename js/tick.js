@@ -26,5 +26,23 @@ function tick (that) {
     that.increaser = that.increaser.plus(that.producer.times(that.producerMult).times(that.producerBaseMult).div(10000).times(date - that.lastTick).times(that.tickMult));
     that.xp = that.xp.plus(that.upgrader.times(that.upgraderMult).times(that.upgraderBaseMult).div(10000).times(date - that.lastTick).times(that.tickMult));
 
+    for (let i = 0; i < that.bonuses.length; i += 1) {
+        let bonus = that.bonuses[i];
+        if (!bonus[0]) {
+            if (that.score.gte(bonus[1])) {
+                that.bonuses[i][0] = true;
+                if (i == 0) {
+                    that.increaserBaseMult = that.increaserBaseMult.times(10);
+                }
+                else if (i == 1) {
+                    that.producerBaseMult = that.producerBaseMult.times(5);
+                }
+                else {
+                    that.upgraderBaseMult = that.upgraderBaseMult.times(2);
+                }
+            }
+        }
+    }
+
     that.lastTick = date;
 }
