@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Idle Exponential</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <div id="top">
+                <span class="score">S: {{ toExp(score) }}</span>
+                <span class="score">X: {{ toExp(xp) }}</span>
+            </div>
+
+            <div id="mid">
+                <div class="left">
+                    <span class="side-title p22">Upgrades</span>
+                    <div class="side-button clickable" v-on:click="buyUpgrade(0)">
+                        <span class="p18">Producer x2</span>
+                        <span class="default-span p14">Cost: <span class="p16">{{ toExp(upgrades[0]) }}</span> X</span>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <span class="side-title p22">Bonuses</span>
+                </div>
+
+                <div class="center">
+                    <div class="button">
+                        <span class="p18">Increaser</span>
+                        <div class="increaserDiv">
+                            <span class="default-span p14">Amount: <span class="p16">{{ toExp(increaser) }}</span></span>
+                            <span class="default-span p14">Producing: <span class="p16">{{ toExp(increaser.times(increaserMult).times(increaserBaseMult)) }}</span> /s</span>
+                            <span class="default-span p14">Mult: <span class="p16">{{ toExp(increaserMult.times(increaserBaseMult)) }}</span>x </span>
+                        </div>
+                    </div>
+                    <div class="button clickable" v-on:click="buyProducer()">
+                        <span class="p18">Producer</span>
+                        <div class="producerDiv">
+                            <span class="default-span p14">Amount: <span class="p16">{{ toExp(producer) }}</span></span>
+                            <span class="default-span p14">Producing: <span class="p16">{{ toExp(producer.times(producerMult).times(producerBaseMult).div(10)) }}</span> /s</span>
+                            <span class="default-span p14">Mult: <span class="p16">{{ toExp(producerMult.times(producerBaseMult)) }}</span>x </span>
+                            <span class="default-span p14">Cost: <span class="p16">{{ toExp(producerCost) }}</span> S</span>
+                        </div>
+                    </div>
+                    <div class="button clickable" v-on:click="buyUpgrader()">
+                        <span class="p18">Upgrader</span>
+                        <div class="upgraderDiv">
+                            <span class="default-span p14">Amount: <span class="p16">{{ toExp(upgrader) }}</span></span>
+                            <span class="default-span p14">Producing: <span class="p16">{{ toExp(upgrader.times(upgraderMult).times(upgraderBaseMult).div(10)) }}</span> /s</span>
+                            <span class="default-span p14">Mult: <span class="p16">{{ toExp(upgraderMult.times(upgraderBaseMult)) }}</span>x </span>
+                            <span class="default-span p14">Cost: <span class="p16">{{ toExp(upgraderCost) }}</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom">
+            </div>
+        </div>
+
+        <script src="js/core/vue.js"></script>
+        <script src="js/core/bignumber.js"></script>
+
+        <script src="js/tick.js"></script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
